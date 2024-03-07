@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        padding: 20,
+        padding: 30,
+        marginTop: 250,
     },
     button: {
         width: 90,
@@ -134,5 +135,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 18,
+
     },
 });
