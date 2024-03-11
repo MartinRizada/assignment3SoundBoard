@@ -3,10 +3,12 @@ import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
 import { Audio } from 'expo-av';
 import * as SQLite from 'expo-sqlite';
 
+
 const db = SQLite.openDatabase('recordings.db');
 
+// pre defined sounds
 const soundEffectFiles = {
-    Music1: require('./assets/sfx/music.mp3'), // Replace with your actual file path
+    Music1: require('./assets/sfx/music.mp3'), 
     Music2: require('./assets/sfx/music1.mp3'),
     Music3: require('./assets/sfx/music2.mp3'),
 };
@@ -101,7 +103,7 @@ export default function App() {
         };
     }, []);
 
-
+    // start record
     const startRecording = async () => {
         try {
             if (permissionsResponse.status !== 'granted') {
@@ -123,7 +125,7 @@ export default function App() {
             Alert.alert("Recording Error", "Failed to start recording.");
         }
     };
-
+    // stop record
     const stopRecording = async () => {
         try {
             await currentRecording.stopAndUnloadAsync();
@@ -163,7 +165,7 @@ export default function App() {
             // If another recording is playing, stop it first
             if (playingRecordingIndex !== null) {
                 // Stop the currently playing recording
-                // Add logic here to stop the currently playing recording
+              
             }
 
             // Start playing the selected recording
@@ -181,7 +183,7 @@ export default function App() {
                 }
             });
         } else {
-            // Add logic here to stop the currently playing recording if the same button is pressed again
+            
             setPlayingRecordingIndex(null); // Reset playing state
         }
     };
@@ -289,11 +291,11 @@ const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        height: 60, // Adjust as needed
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomWidth: 1, // Optional, for a bottom border
-        borderBottomColor: '#ddd', // Border color
+        borderBottomWidth: 1, 
+        borderBottomColor: '#ddd', 
     },
     headerTitle: {
         fontSize: 20,
